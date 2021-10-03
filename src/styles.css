@@ -16,12 +16,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.logo {
-  display: block;
+/* 
+.logo { */
+/* display: block;
   text-indent: -9999px;
   width: 100px;
-  height: 82px;
-  background: url(./images/logo.svg);
+  height: 82px; */
+/* background: url(./images/logo.svg); */
+/* background: url(./assets/scripbox.png);
   background-size: 100px 82px;
-}
+} */
