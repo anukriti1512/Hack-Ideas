@@ -5,10 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  employeeId = '';
-  c() {
-    console.log('btn clicked');
-    console.log(this.employeeId);
-  }
-}
+export class AppComponent {}
