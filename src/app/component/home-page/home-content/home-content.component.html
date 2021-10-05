@@ -1,1 +1,42 @@
-<p>home-content works!</p>
+<div class="container">
+  <!-- nav bar -->
+  <div class="nav-container">
+    <button class="nav-content" id="live-btn">Live</button>
+    <button class="nav-content" id="past-btn">Past</button>
+  </div>
+  <!-- nav bar ends -->
+
+  <!-- hackathons-content -->
+
+  <div class="hackathon-container">
+    <div class="hackathon-idea">
+      <div *ngFor="let d of data">
+        <div>
+          <img
+            class="title-img"
+            src="assets/hacker.png"
+            height="80px"
+            width="80px"
+          />
+          <h2 class="title-head">
+            {{ d.title }}
+          </h2>
+        </div>
+        <span *ngFor="let tag of d.tags" class="tag">{{ tag }}</span>
+        <div class="description-box">
+          <label>Description : </label><span>{{ d.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hackathon-container ends -->
+
+  <!-- got new idea -->
+  <div class="got-new-idea-container">
+    <h1 style="text-align: center; color: rgb(42, 31, 104)">Got New Idea ?</h1>
+    <img id="idea" src="assets/got-new-idea.gif" />
+    <button>Create New Hackathon</button>
+    <div></div>
+    <!--  outermost container div -->
+  </div>
+</div>

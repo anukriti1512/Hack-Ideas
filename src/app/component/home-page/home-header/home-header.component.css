@@ -1,0 +1,20 @@
+.flex-container {
+  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  background: white;
+  opacity: 0.7;
+  border-radius: 20px;
+  box-shadow: 1px 1px 20px 6px skyblue;
+}
+.nav-content {
+  padding: 20px 20px 20px 20px;
+  font-size: large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+li {
+  list-style-type: none;
+}
