@@ -1,9 +1,45 @@
 <div class="container">
   <!-- nav bar -->
   <div class="nav-container">
-    <button class="nav-content" id="live-btn">Live</button>
-    <button class="nav-content" id="past-btn">Past</button>
+    <button
+      class="nav-content"
+      id="live-btn"
+      [ngClass]="{ 'btn-active': dataActive === 'Live' }"
+    >
+      Live
+    </button>
+    <button
+      class="nav-content"
+      id="past-btn"
+      [ngClass]="{ 'btn-active': dataActive === 'Past' }"
+    >
+      Past
+    </button>
   </div>
+  <!-- sort - bar -->
+  <div class="sort-container">
+    <label style="text-align: center"> votes</label>
+
+    <img
+      src="assets/icons8-slide-up-48.png"
+      class="sort-btn"
+      id="aesc"
+      (click)="sortc()"
+    />
+    <img src="assets/icons8-down-button-48.png" class="sort-btn" id="desc" />
+  </div>
+
+  <div class="date-sort-container">
+    <label style="text-align: center">Creation Date</label>
+
+    <img src="assets/icons8-slide-up-48.png" class="sort-btn" id="aesc-tag" />
+    <img
+      src="assets/icons8-down-button-48.png"
+      class="sort-btn"
+      id="desc-tag"
+    />
+  </div>
+
   <!-- nav bar ends -->
 
   <!-- hackathons-content -->
@@ -14,7 +50,7 @@
         <div>
           <img
             class="title-img"
-            src="assets/hacker.png"
+            src="assets/hackathon.png"
             height="80px"
             width="80px"
           />
@@ -26,6 +62,9 @@
         <div class="description-box">
           <label>Description : </label><span>{{ d.description }}</span>
         </div>
+        <div>
+          <label>Created By : </label><span>{{ d.description }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +74,9 @@
   <div class="got-new-idea-container">
     <h1 style="text-align: center; color: rgb(42, 31, 104)">Got New Idea ?</h1>
     <img id="idea" src="assets/got-new-idea.gif" />
-    <button>Create New Hackathon</button>
+    <button class="hackathon-btn" (click)="createNewHackathon()">
+      Create New Hackathon
+    </button>
     <div></div>
     <!--  outermost container div -->
   </div>

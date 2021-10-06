@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-content',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-content.component.css'],
 })
 export class HomeContentComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -27,4 +28,19 @@ export class HomeContentComponent implements OnInit {
     { title: 5, tags: ['sap'], description: 'My name is anukriti' },
     { title: 6, tags: ['tech', 'backend'], description: 'My name is anukriti' },
   ];
+  cm(c: any) {
+    console.log(c);
+    console.log(c['target'].id);
+  }
+  p(e: any) {
+    alert(e.target.parentNode.id);
+  }
+  dataActive: any = 'Live';
+
+  createNewHackathon() {
+    this.router.navigateByUrl('/home/create-hackathon');
+  }
+  sortc() {
+    alert('sort pressed');
+  }
 }

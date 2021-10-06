@@ -1,20 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  box-sizing: border-box;
-  background: linear-gradient(
-    to right,
-    rgb(0, 191, 255, 1),
-    rgba(0, 191, 255, 0.5),
-    rgba(225, 255, 255, 1)
-  );
-  /* act on all viewports */
-}
+
 .flex-container {
   display: inline-flex;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.scripbox-logo {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 /* 
 .logo { */

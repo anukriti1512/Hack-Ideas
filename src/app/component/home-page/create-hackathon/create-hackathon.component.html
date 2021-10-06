@@ -1,1 +1,84 @@
-<p>create-hackathon works!</p>
+<form>
+  <div class="flex-container">
+    <h1>Place Your Idea into Work !</h1>
+  </div>
+  <div class="outer-container">
+    <div class="inner-container">
+      <div id="title-tag"><h3>Title</h3></div>
+      <input
+        class="title-input"
+        type="text"
+        placeholder="Enter title for hackathon"
+        required
+      />
+
+      <div id="tag"><h3>Tags</h3></div>
+      <input
+        class="tag-input"
+        type="text"
+        placeholder="Specify tags relevant to this hackathon"
+        required
+      />
+
+      <div id="description"><h3>Description</h3></div>
+      <textarea
+        class="description-textarea"
+        type="text"
+        placeholder="Give a description about the hackathon"
+        required
+      ></textarea>
+
+      <div id="Rules"><h3>Rules</h3></div>
+      <textarea
+        class="Rules-textarea"
+        type="text"
+        placeholder="Specify the Rules for the contest"
+        required
+      ></textarea>
+
+      <div id="Prizes"><h3>Prizes</h3></div>
+      <input
+        id="prize-1"
+        type="number"
+        placeholder="Enter amount for Prize 1"
+        required
+      />
+      <input
+        id="prize-2"
+        type="number"
+        placeholder="Enter amount for Prize 2"
+        required
+      />
+
+      <div id="ends-on"><h3>Ends on</h3></div>
+      <input
+        class="ends-on-input"
+        type="date"
+        placeholder="Specify end date"
+        required
+      />
+
+      <div id="skills"><h3>Primary Skills</h3></div>
+      <input
+        class="skills-input"
+        type="text"
+        placeholder="Specify the Primary skills required"
+        required
+      />
+
+      <div id="Created-by"><h3>Created By</h3></div>
+      <input
+        class="Created-by-input"
+        type="text"
+        placeholder="Please enter your Name"
+        required
+      />
+      <input class="User-id-input" type="text" disabled value="userid" />
+
+      <div id="Creation-date"><h3>Date</h3></div>
+      <input class="Creation-date" type="test" disabled value="creation date" />
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </div>
+  </div>
+</form>
