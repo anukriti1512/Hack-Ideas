@@ -7,6 +7,7 @@ import { HomeContentComponent } from './home-content/home-content.component';
 import { HomeLandingPageComponent } from './home-landing-page/home-landing-page.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CreateHackathonComponent } from './create-hackathon/create-hackathon.component';
+import { HackathonDetailsComponent } from './hackathon-details/hackathon-details.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CreateHackathonComponent } from './create-hackathon/create-hackathon.co
     HomeContentComponent,
     HomeLandingPageComponent,
     UserHomeComponent,
-    CreateHackathonComponent
+    CreateHackathonComponent,
+    HackathonDetailsComponent
   ],
   imports: [
     CommonModule,
