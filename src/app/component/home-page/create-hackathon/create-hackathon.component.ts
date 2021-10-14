@@ -12,6 +12,10 @@ export class CreateHackathonComponent implements OnInit {
   description: string = '';
   rules: string = '';
   prize1: any;
+  prize2: any;
+  endsOn: any;
+  skills: string = '';
+  createdBy: string = '';
 
   ngOnInit(): void {}
   submitIdea() {}
