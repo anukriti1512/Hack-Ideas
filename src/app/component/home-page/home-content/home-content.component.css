@@ -7,10 +7,6 @@
 
 .nav-container {
   display: grid;
-  /* background: white; */
-  /* opacity: 0.7; */
-  /* border-radius: 20px;
-  box-shadow: 1px 1px 20px 6px skyblue; */
   grid-column: 1/6;
   grid-row: 1/2;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -57,7 +53,6 @@ li {
   margin: auto;
   outline: none;
   border: none;
-  /* border: 1px solid rgb(8, 23, 97); */
 }
 .sort-container img {
   width: 100%;
@@ -145,29 +140,22 @@ li {
   padding: 10px;
   /* border: 1px solid skyblue; */
   border-radius: 10px;
-  /* background-color: rgb(232 234 245); */
-  /* color: #fff;
-  opacity: 0.7; */
-  /* background-color: #f7f5f5; */
 }
 .hackathon-idea {
   display: grid;
   grid-template-columns: repeat(1fr);
 }
 .hackathon-idea > * {
-  /* border: 1px solid rgb(4, 29, 39); */
   padding: 20px;
   border-radius: 10px;
   margin: 5px 5px 5px 5px;
   background-color: white;
-  /* box-shadow: 3px 4px 10px -3px #8dcaff; */
-  /* box-shadow: 0 2px 4px 0 rgb(0 0 0 / 18%); */
+
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   color: #000;
-  /* box-shadow: 2px 4px 10px 0px #888888; */
-  /* box-shadow: 3px 4px 10px -3px #a2b6c7; */
+
   color: #000;
 }
 .tag {
@@ -197,14 +185,6 @@ li {
   display: flex;
   justify-content: space-between;
 }
-
-/* .description-box {
-  background-color: white;
-  display: block;
-  margin: 5px 4px 4px 2px;
-  padding: 6px 8px 7px 11px;
-  border-radius: 10px;
-} */
 
 .title-head {
   display: inline-block;
