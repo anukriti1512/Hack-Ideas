@@ -47,7 +47,7 @@
   <div class="hackathon-container">
     <div class="hackathon-idea">
       <div *ngFor="let d of Data">
-        <div>
+        <div class="data-box">
           <img
             class="title-img"
             src="assets/hackathon.png"
@@ -59,10 +59,13 @@
           </h2>
         </div>
         <span *ngFor="let tag of d.tags" class="tag">{{ d.tags }}</span>
-        <div class="description-box">
-          <label>Skills : </label><span>{{ d.skills }}</span>
+        <div class="data-box" id="skills-box">
+          <div>
+            <label>Skills : </label><span>{{ d.skills }}</span>
+          </div>
+          <button id="see-details-btn">See Details</button>
         </div>
-        <div>
+        <div class="data-box">
           <label>Created By : </label><span>{{ d.createdBy }}</span>
         </div>
       </div>
