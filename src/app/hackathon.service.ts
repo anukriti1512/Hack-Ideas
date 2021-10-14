@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HackathonService {
   constructor() {}
+  selectedHackathon = {};
 
   HackathonData = [
     {
@@ -18,7 +19,7 @@ export class HackathonService {
         ' We are now looking for talented experts to lead innovation towards business sustainability and revolution.',
       prize1: 100000,
       prize2: 75000,
-      endsOn: 'date',
+      endsOn: 'Tue Oct 12 2021 00:00:00 GMT+0530 (India Standard Time)',
       createdBy: 'Ashok sharma',
       creationDate: 'date',
     },
@@ -34,7 +35,7 @@ export class HackathonService {
         'A subset of machine learning is closely related to computational statistics, which focuses on making predictions using computers; but not all machine learning is statistical learning. The study of mathematical optimization delivers methods, theory and application domains to the field of machine learning. Data mining is a related field of study, focusing on exploratory data analysis through unsupervised learning. Some implementations of machine learning use data and neural networks in a way that mimics the working of a biological brain. In its application across business problems, machine learning is also referred to as predictive analytics.',
       prize1: 100000,
       prize2: 75000,
-      endsOn: 'date',
+      endsOn: 'Sat Oct 30 2021 00:00:00 GMT+0530 (India Standard Time)',
       createdBy: 'Ashok sharma',
       creationDate: 'date',
     },
@@ -42,5 +43,14 @@ export class HackathonService {
 
   getHackathonData() {
     return this.HackathonData;
+  }
+
+  setSelectedHackathonDetails(selectedHackathon: object) {
+    this.selectedHackathon = {};
+    this.selectedHackathon = selectedHackathon;
+  }
+
+  getSelectedHackathonDetails() {
+    return this.selectedHackathon;
   }
 }

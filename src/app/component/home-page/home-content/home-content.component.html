@@ -5,6 +5,7 @@
       class="nav-content"
       id="live-btn"
       [ngClass]="{ 'btn-active': dataActive === 'Live' }"
+      (click)="loadContent('live')"
     >
       Live
     </button>
@@ -12,6 +13,7 @@
       class="nav-content"
       id="past-btn"
       [ngClass]="{ 'btn-active': dataActive === 'Past' }"
+      (click)="loadContent('past')"
     >
       Past
     </button>
@@ -63,7 +65,9 @@
           <div>
             <label>Skills : </label><span>{{ d.skills }}</span>
           </div>
-          <button id="see-details-btn">See Details</button>
+          <button id="see-details-btn" (click)="SeeDetails(d.id)">
+            See Details
+          </button>
         </div>
         <div class="data-box">
           <label>Created By : </label><span>{{ d.createdBy }}</span>

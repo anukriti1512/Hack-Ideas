@@ -188,6 +188,7 @@ li {
 
 .title-head {
   display: inline-block;
+  margin-left: 30px;
 }
 #idea {
   width: 100%;
