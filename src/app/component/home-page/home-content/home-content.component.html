@@ -46,7 +46,7 @@
 
   <div class="hackathon-container">
     <div class="hackathon-idea">
-      <div *ngFor="let d of data">
+      <div *ngFor="let d of Data">
         <div>
           <img
             class="title-img"
@@ -58,12 +58,12 @@
             {{ d.title }}
           </h2>
         </div>
-        <span *ngFor="let tag of d.tags" class="tag">{{ tag }}</span>
+        <span *ngFor="let tag of d.tags" class="tag">{{ d.tags }}</span>
         <div class="description-box">
-          <label>Description : </label><span>{{ d.description }}</span>
+          <label>Skills : </label><span>{{ d.skills }}</span>
         </div>
         <div>
-          <label>Created By : </label><span>{{ d.description }}</span>
+          <label>Created By : </label><span>{{ d.createdBy }}</span>
         </div>
       </div>
     </div>
