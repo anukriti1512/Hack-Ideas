@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
   <div class="flex-container">
     <h1>Place Your Idea into Work !</h1>
   </div>
@@ -9,6 +9,7 @@
         class="title-input"
         type="text"
         placeholder="Enter title for hackathon"
+        [(ngModel)]="title"
         required
       />
 
@@ -17,6 +18,7 @@
         class="tag-input"
         type="text"
         placeholder="Specify tags relevant to this hackathon"
+        [(ngModel)]="tags"
         required
       />
 
@@ -78,7 +80,140 @@
       <div id="Creation-date"><h3>Date</h3></div>
       <input class="Creation-date" type="test" disabled value="creation date" />
 
-      <button type="submit" class="submit-btn" (click)="submitIdea()">
+      <button type="submit" class="submit-btn" (ngSubmit)="submitIdea()">
+        Submit
+      </button>
+    </div>
+  </div>
+</form> -->
+
+<!-- reactive forms  -->
+
+<form [formGroup]="CreateHackathonForm" (ngSubmit)="onSubmit()">
+  <div class="flex-container">
+    <h1>Place Your Idea into Work !</h1>
+  </div>
+  <div class="outer-container">
+    <div class="inner-container">
+      <div id="title-tag">
+        <h3><label for="title-input">Title</label></h3>
+      </div>
+      <input
+        class="title-input"
+        formControlName="title"
+        id="title-input"
+        type="text"
+        placeholder="Enter title for hackathon"
+        required
+      />
+
+      <div id="tag">
+        <h3><label for="tags">Tags</label></h3>
+      </div>
+      <input
+        class="tag-input"
+        type="text"
+        id="tags"
+        formControlName="tags"
+        placeholder="Specify tags relevant to this hackathon"
+        required
+      />
+
+      <div id="description">
+        <h3><label for="desc">Description</label></h3>
+      </div>
+      <textarea
+        class="description-textarea"
+        type="text"
+        id="desc"
+        formControlName="description"
+        placeholder="Give a description about the hackathon"
+        required
+      ></textarea>
+
+      <div id="Rules">
+        <h3><label for="rule">Rules</label></h3>
+      </div>
+      <textarea
+        class="Rules-textarea"
+        type="text"
+        id="rule"
+        formControlName="rules"
+        placeholder="Specify the Rules for the contest"
+        required
+      ></textarea>
+
+      <div id="Prizes">
+        <h3><label for="prize-1">Prize</label></h3>
+      </div>
+      <input
+        id="prize-1"
+        type="number"
+        formControlName="prize"
+        placeholder="Enter amount for Prize"
+        required
+      />
+      <!-- <input
+        id="prize-2"
+        type="number"
+        placeholder="Enter amount for Prize 2"
+        required
+      /> -->
+
+      <div id="ends-on">
+        <h3><label for="endsOn">Ends on</label></h3>
+      </div>
+      <input
+        class="ends-on-input"
+        type="date"
+        id="endsOn"
+        formControlName="endsOn"
+        placeholder="Specify end date"
+        required
+      />
+
+      <div id="skills">
+        <h3><label for="skill">Primary Skills</label></h3>
+      </div>
+      <input
+        class="skills-input"
+        type="text"
+        id="skill"
+        formControlName="skills"
+        placeholder="Specify the Primary skills required"
+        required
+      />
+
+      <div id="Created-by">
+        <h3><label for="createdby">Created By</label></h3>
+      </div>
+      <input
+        class="Created-by-input"
+        type="text"
+        id="createdby"
+        formControlName="createdBy"
+        placeholder="Please enter your Name"
+        (keydown.space)="$event.preventDefault()"
+        required
+      />
+      <input class="User-id-input" type="text" disabled value="userid" />
+
+      <div id="Creation-date">
+        <h3><label for="date">Date</label></h3>
+      </div>
+      <input
+        class="Creation-date"
+        id="date"
+        type="test"
+        [value]="dateValue"
+        disabled
+      />
+
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="CreateHackathonForm.status == 'INVALID'"
+      >
         Submit
       </button>
     </div>

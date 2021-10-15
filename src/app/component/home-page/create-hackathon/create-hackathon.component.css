@@ -20,16 +20,23 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.submit-btn:disabled {
+  background-color: white;
+  color: rgb(61, 5, 61);
+}
+
 .submit-btn {
   border: 2px solid rgb(61, 5, 61);
   font-size: 25px;
-  color: rgb(61, 5, 61);
+  color: white;
+  background-color: rgb(61, 5, 61);
   border-radius: 15px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
-.submit-btn:hover {
+.submit-btn:hover:enabled {
   color: white !important;
-  background-color: rgb(61, 5, 61);
+  background-color: rgb(0, 0, 0);
 }
 
 input,

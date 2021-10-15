@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeContentComponent } from './home-content/home-content.component';
@@ -9,7 +11,6 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { CreateHackathonComponent } from './create-hackathon/create-hackathon.component';
 import { HackathonDetailsComponent } from './hackathon-details/hackathon-details.component';
 
-
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -17,11 +18,8 @@ import { HackathonDetailsComponent } from './hackathon-details/hackathon-details
     HomeLandingPageComponent,
     UserHomeComponent,
     CreateHackathonComponent,
-    HackathonDetailsComponent
+    HackathonDetailsComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+  imports: [CommonModule, HomeRoutingModule, FormsModule, ReactiveFormsModule],
 })
-export class HomeModule { }
+export class HomeModule {}
