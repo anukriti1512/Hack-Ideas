@@ -40,10 +40,10 @@ li {
   grid-column: 1/8;
   padding-top: 15px;
 }
-#aesc {
+#aesc-vote {
   grid-column: 8/10;
 }
-#desc {
+#desc-vote {
   grid-column: 10/12;
 }
 .sort-container button {
@@ -79,15 +79,19 @@ li {
   background-color: #4c0c6c;
   color: white !important;
 }
+.sort-btn:hover {
+  opacity: 0.8;
+  transition: 0.2s ease;
+}
 
 .date-sort-container label {
   grid-column: 1/8;
   padding-top: 15px;
 }
-#aesc-tag {
+#aesc-date {
   grid-column: 8/10;
 }
-#desc-tag {
+#desc-date {
   grid-column: 10/12;
 }
 .date-sort-container button {

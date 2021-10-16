@@ -25,20 +25,31 @@
     <img
       src="assets/icons8-slide-up-48.png"
       class="sort-btn"
-      id="aesc"
-      (click)="sortc()"
+      id="aesc-vote"
+      (click)="sortHackathon($event)"
     />
-    <img src="assets/icons8-down-button-48.png" class="sort-btn" id="desc" />
+    <img
+      src="assets/icons8-down-button-48.png"
+      class="sort-btn"
+      id="desc-vote"
+      (click)="sortHackathon($event)"
+    />
   </div>
 
   <div class="date-sort-container">
     <label style="text-align: center">Creation Date</label>
 
-    <img src="assets/icons8-slide-up-48.png" class="sort-btn" id="aesc-tag" />
+    <img
+      src="assets/icons8-slide-up-48.png"
+      class="sort-btn"
+      id="aesc-date"
+      (click)="sortHackathon($event)"
+    />
     <img
       src="assets/icons8-down-button-48.png"
       class="sort-btn"
-      id="desc-tag"
+      id="desc-date"
+      (click)="sortHackathon($event)"
     />
   </div>
 

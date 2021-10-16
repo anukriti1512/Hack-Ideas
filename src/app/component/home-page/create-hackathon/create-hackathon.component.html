@@ -88,6 +88,9 @@
 </form> -->
 
 <!-- reactive forms  -->
+<div class="alert alert-success" role="alert" *ngIf="showAlert">
+  A simple success alert—check it out!
+</div>
 
 <form [formGroup]="CreateHackathonForm" (ngSubmit)="onSubmit()">
   <div class="flex-container">
@@ -138,7 +141,7 @@
         class="Rules-textarea"
         type="text"
         id="rule"
-        formControlName="rules"
+        formControlName="Rules"
         placeholder="Specify the Rules for the contest"
         required
       ></textarea>
@@ -164,6 +167,7 @@
         <h3><label for="endsOn">Ends on</label></h3>
       </div>
       <input
+        name="d"
         class="ends-on-input"
         type="date"
         id="endsOn"

@@ -1,9 +1,13 @@
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler/src/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HackathonService } from 'src/app/hackathon.service';
 
 @Component({
   selector: 'app-create-hackathon',
@@ -11,11 +15,13 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./create-hackathon.component.css'],
 })
 export class CreateHackathonComponent implements OnInit {
+  hackathoncount: Number = 0;
+
   CreateHackathonForm = this.fb.group({
     title: ['', [Validators.required, this.noWhitespaceValidator]],
     tags: ['', [Validators.required, this.noWhitespaceValidator]],
     description: ['', [Validators.required, this.noWhitespaceValidator]],
-    rules: ['', [Validators.required, this.noWhitespaceValidator]],
+    Rules: ['', [Validators.required, this.noWhitespaceValidator]],
     prize: ['', [Validators.required]],
     // prize2: [''],
     endsOn: ['', [Validators.required, this.noWhitespaceValidator]],
@@ -24,7 +30,17 @@ export class CreateHackathonComponent implements OnInit {
   });
   dateValue = new Date(Date.now()).toLocaleString().split(',')[0];
 
-  constructor(private fb: FormBuilder) {}
+  //  document.getElementsByName("d")[0].setAttribute('min', today);
+  // document.getElementsByName()
+  // document.getElementsByName
+
+  showAlert = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private hackathon: HackathonService,
+    private router: Router
+  ) {}
   // title: string = '';
   // tags: string = '';
   // description: string = '';
@@ -35,17 +51,34 @@ export class CreateHackathonComponent implements OnInit {
   // skills: string = '';
   // createdBy: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let today = new Date().toISOString().split('T')[0];
+    // year-month-day
+    document.getElementsByName('d')[0].setAttribute('min', today);
+  }
 
   noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
     return isValid ? null : { whitespace: true };
+    document.getElementById;
   }
 
   onSubmit() {
+    this.hackathoncount = this.hackathon.getTotalHackathonCount() + 1;
+    this.CreateHackathonForm.value['creationDate'] = `${new Date()}`;
+    this.CreateHackathonForm.value['id'] = `H${this.hackathoncount}`;
+    let tagsArray = this.CreateHackathonForm.value.tags.split(',');
+
+    this.CreateHackathonForm.value['tags'] = tagsArray;
+    //   this.CreateHackathonForm.value.tags.split(',');
     console.log(this.CreateHackathonForm.value);
 
+    this.hackathon.updateHackathonIdea(this.CreateHackathonForm.value);
+    // this.CreateHackathonForm.reset(this.CreateHackathonForm.value);
+    this.CreateHackathonForm.reset();
+
     console.log(this.CreateHackathonForm.status);
+    this.router.navigateByUrl('/home');
   }
 }

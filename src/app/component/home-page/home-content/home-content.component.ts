@@ -81,7 +81,28 @@ export class HomeContentComponent implements OnInit {
     this.router.navigate(['/home/hackathon-details', id]);
   }
 
-  sortc() {
-    alert('sort pressed');
+  //sort hackathon based on votes or creation date
+  sortHackathon(e: any) {
+    //creation-date
+    if (e.target.id === 'aesc-date') {
+      this.Data.sort(function (a: any, b: any) {
+        return (
+          new Date(a.creationDate).getTime() -
+          new Date(b.creationDate).getTime()
+        );
+      });
+    }
+
+    if (e.target.id === 'desc-date') {
+      this.Data.sort(function (a: any, b: any) {
+        return (
+          new Date(b.creationDate).getTime() -
+          new Date(a.creationDate).getTime()
+        );
+      });
+    }
+    //
+
+    console.log(this.Data);
   }
 }
