@@ -12,15 +12,15 @@ import { Validators } from '@angular/forms';
 })
 export class CreateHackathonComponent implements OnInit {
   CreateHackathonForm = this.fb.group({
-    title: ['', Validators.required],
-    tags: ['', Validators.required],
-    description: ['', Validators.required],
-    rules: ['', Validators.required],
-    prize: ['', Validators.required],
+    title: ['', [Validators.required, this.noWhitespaceValidator]],
+    tags: ['', [Validators.required, this.noWhitespaceValidator]],
+    description: ['', [Validators.required, this.noWhitespaceValidator]],
+    rules: ['', [Validators.required, this.noWhitespaceValidator]],
+    prize: ['', [Validators.required]],
     // prize2: [''],
-    endsOn: ['', Validators.required],
-    skills: ['', Validators.required],
-    createdBy: ['', Validators.required],
+    endsOn: ['', [Validators.required, this.noWhitespaceValidator]],
+    skills: ['', [Validators.required, this.noWhitespaceValidator]],
+    createdBy: ['', [Validators.required, this.noWhitespaceValidator]],
   });
   dateValue = new Date(Date.now()).toLocaleString().split(',')[0];
 
@@ -36,6 +36,13 @@ export class CreateHackathonComponent implements OnInit {
   // createdBy: string = '';
 
   ngOnInit(): void {}
+
+  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
+  }
+
   onSubmit() {
     console.log(this.CreateHackathonForm.value);
 
