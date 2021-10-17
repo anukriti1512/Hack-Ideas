@@ -8,10 +8,12 @@
         type="text"
         [(ngModel)]="employeeId"
         placeholder="Enter Employee Id"
+        (keydown.space)="$event.preventDefault()"
+        [(ngModel)]="employeeId"
         required
       />
       <button
-        (click)="c()"
+        (click)="login()"
         [disabled]="!(employeeId?.trim() !== '')"
         routerLink="/home"
       >

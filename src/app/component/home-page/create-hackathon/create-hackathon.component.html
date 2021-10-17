@@ -197,10 +197,9 @@
         id="createdby"
         formControlName="createdBy"
         placeholder="Please enter your Name"
-        (keydown.space)="$event.preventDefault()"
         required
       />
-      <input class="User-id-input" type="text" disabled value="userid" />
+      <input class="User-id-input" type="text" disabled [value]="userId" />
 
       <div id="Creation-date">
         <h3><label for="date">Date</label></h3>

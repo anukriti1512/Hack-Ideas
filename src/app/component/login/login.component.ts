@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HackathonService } from 'src/app/hackathon.service';
 
 @Component({
   selector: 'app-login',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private hackathon: HackathonService) {}
 
   ngOnInit(): void {}
   employeeId = '';
-  c() {
-    console.log('btn clicked');
+  login() {
     console.log(this.employeeId);
+    this.hackathon.setUserId(this.employeeId);
   }
 }

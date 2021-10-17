@@ -6,9 +6,41 @@
   </div>
 </div>
 
-<div class="title-box">
-  <div class="container">
-    <div id="title">title</div>
-    <button id="register-btn">Register</button>
+<div class="container">
+  <div class="title">
+    <h1>{{ selectedHackathon[0].title }}</h1>
   </div>
+
+  <div class="register-btn-div">
+    <button class="register-btn">Register Now</button>
+  </div>
+  <div class="description-box-container">
+    <h2 class="description-header">About Contest</h2>
+    <div class="description-content">
+      {{ selectedHackathon[0].description }}
+    </div>
+  </div>
+
+  <div class="prize-container">
+    <div class="prize">
+      <i class="bi bi-trophy-fill" id="trophy-icon"></i> INR
+      {{ selectedHackathon[0].prize }}
+    </div>
+  </div>
+
+  <div class="skills-container">
+    <h2 class="skills-header">Skills required</h2>
+    <div class="skills">
+      {{ selectedHackathon[0].skills }}
+    </div>
+  </div>
+
+  <div class="rules-container">
+    <h2 class="rules-header">Rules</h2>
+    <div class="rules" *ngFor="let rule of hackathonRules; let i = index">
+      {{ i + 1 }}. {{ rule }}
+    </div>
+  </div>
+
+  <!-- container -->
 </div>

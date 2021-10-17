@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class HackathonService {
   constructor() {}
   selectedHackathon = {};
+  loggedInuser = '';
 
   HackathonData = [
     {
@@ -25,7 +26,7 @@ export class HackathonService {
     },
     {
       id: 'H2',
-      title: 'AI/ML Hackathon - Geek Goddess 2021',
+      title: 'AI/ML Hackathon - Geek Goddess 2021 ',
       tags: ['Data Science'],
       skills: ' Machine Learning / Artificial Intelligence',
       Rules:
@@ -57,6 +58,13 @@ export class HackathonService {
     },
   ];
 
+  setUserId(employeeId: string) {
+    this.loggedInuser = employeeId;
+  }
+  getLoggedInUser() {
+    return this.loggedInuser;
+  }
+
   getHackathonData() {
     return this.HackathonData;
   }
@@ -75,5 +83,19 @@ export class HackathonService {
   }
   updateHackathonIdea(idea: any) {
     this.HackathonData.push(idea);
+  }
+  UserVotes: any = {};
+
+  UpdateuserVotes(id: any, hackathonId: any) {
+    if (Object.keys(this.UserVotes).includes(id)) {
+      if (this.UserVotes.id.includes(hackathonId)) {
+        this.UserVotes.id.splice(this.UserVotes.id.indexOf(hackathonId), 1);
+      } else {
+        this.UserVotes.id.push(hackathonId);
+      }
+    } else {
+      this.UserVotes['id'] = [hackathonId];
+    }
+    console.log(this.UserVotes);
   }
 }

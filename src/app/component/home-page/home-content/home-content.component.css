@@ -4,6 +4,26 @@
 * {
   font-family: "lato", Arial, Helvetica, sans-serif;
 }
+.upvote {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+  object-fit: contain;
+}
+#upvote-btn {
+  padding: 7px;
+}
+#upvote-btn:hover {
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  background-color: red;
+}
+
+/* #upvote-btn {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+} */
 
 .nav-container {
   display: grid;

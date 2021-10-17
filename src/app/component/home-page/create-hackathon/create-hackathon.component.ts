@@ -29,6 +29,7 @@ export class CreateHackathonComponent implements OnInit {
     createdBy: ['', [Validators.required, this.noWhitespaceValidator]],
   });
   dateValue = new Date(Date.now()).toLocaleString().split(',')[0];
+  userId = '';
 
   //  document.getElementsByName("d")[0].setAttribute('min', today);
   // document.getElementsByName()
@@ -40,7 +41,9 @@ export class CreateHackathonComponent implements OnInit {
     private fb: FormBuilder,
     private hackathon: HackathonService,
     private router: Router
-  ) {}
+  ) {
+    this.userId = this.hackathon.getLoggedInUser();
+  }
   // title: string = '';
   // tags: string = '';
   // description: string = '';
@@ -71,6 +74,7 @@ export class CreateHackathonComponent implements OnInit {
     let tagsArray = this.CreateHackathonForm.value.tags.split(',');
 
     this.CreateHackathonForm.value['tags'] = tagsArray;
+    this.CreateHackathonForm.value['userId'] = this.userId;
     //   this.CreateHackathonForm.value.tags.split(',');
     console.log(this.CreateHackathonForm.value);
 

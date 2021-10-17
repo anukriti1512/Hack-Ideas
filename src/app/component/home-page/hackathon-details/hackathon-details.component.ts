@@ -8,9 +8,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./hackathon-details.component.css'],
 })
 export class HackathonDetailsComponent implements OnInit {
-  selectedHackathon: object = {};
+  selectedHackathon: any = {};
   hackathonData: any = [];
   hackathonId: string = '';
+  hackathonRules = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +25,7 @@ export class HackathonDetailsComponent implements OnInit {
     });
     //get selected hackathon object
     this.selectedHackathon = this.hackathon.getSelectedHackathonDetails();
-    console.log(this.selectedHackathon);
+    console.log('selected hackathon', this.selectedHackathon);
     //if hackathon details is opened from the url direct
     if (!Object.keys(this.selectedHackathon).length) {
       this.hackathonData = this.hackathon.getHackathonData();
@@ -37,6 +38,9 @@ export class HackathonDetailsComponent implements OnInit {
           return false;
         }
       });
+      console.log('selected hackathon', this.selectedHackathon);
     }
+    this.hackathonRules = this.selectedHackathon[0].Rules.split('.');
+    this.hackathonRules.pop();
   }
 }
