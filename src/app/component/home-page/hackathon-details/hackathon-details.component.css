@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-rows: 40px;
-  /* grid-column-gap: 1px; */
+
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   margin-bottom: 25px !important;
@@ -96,7 +96,6 @@
 }
 .prize {
   font-size: 25px;
-
   grid-column: 2/6;
   grid-row: 1/2;
 }

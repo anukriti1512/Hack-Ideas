@@ -7,6 +7,12 @@ export class HackathonService {
   constructor() {}
   selectedHackathon = {};
   loggedInuser = '';
+  UserVotes: any = { AC123: ['H1'] };
+  totalVotesCount: any = {
+    H1: 4,
+    H2: 5,
+    H3: 2,
+  };
 
   HackathonData = [
     {
@@ -19,10 +25,10 @@ export class HackathonService {
       description:
         ' We are now looking for talented experts to lead innovation towards business sustainability and revolution.',
       prize: 100000,
-
       endsOn: 'Tue Oct 12 2021 00:00:00 GMT+0530 (India Standard Time)',
       createdBy: 'Ashok sharma',
       creationDate: 'Tue Oct 12 2021 00:00:00 GMT+0530 (India Standard Time)',
+      createdByUserId: 'AS1234',
     },
     {
       id: 'H2',
@@ -39,6 +45,7 @@ export class HackathonService {
       endsOn: 'Sat Oct 30 2021 00:00:00 GMT+0530 (India Standard Time)',
       createdBy: 'Ashok sharma',
       creationDate: 'Tue Oct 12 2021 00:00:00 GMT+0530 (India Standard Time)',
+      createdByUserId: 'AS1234',
     },
     {
       id: 'H3',
@@ -55,6 +62,7 @@ export class HackathonService {
       endsOn: 'Sat Oct 31 2021 00:00:00 GMT+0530 (India Standard Time)',
       createdBy: 'Ashok sharma',
       creationDate: 'Sat Oct 11 2021 00:00:00 GMT+0530 (India Standard Time)',
+      createdByUserId: 'AS1234',
     },
   ];
 
@@ -84,18 +92,40 @@ export class HackathonService {
   updateHackathonIdea(idea: any) {
     this.HackathonData.push(idea);
   }
-  UserVotes: any = {};
+
+  updateVotesCount(id: any, operation: string) {
+    if (operation === 'add') {
+      this.totalVotesCount[id]++;
+    } else if (operation === 'delete') {
+      this.totalVotesCount[id]--;
+    } else if (operation === 'create') {
+      this.totalVotesCount[id] = 0;
+    }
+    console.log(this.totalVotesCount);
+  }
 
   UpdateuserVotes(id: any, hackathonId: any) {
+    let operation = '';
     if (Object.keys(this.UserVotes).includes(id)) {
-      if (this.UserVotes.id.includes(hackathonId)) {
-        this.UserVotes.id.splice(this.UserVotes.id.indexOf(hackathonId), 1);
+      if (this.UserVotes[id].includes(hackathonId)) {
+        this.UserVotes[id].splice(this.UserVotes[id].indexOf(hackathonId), 1);
+        operation = 'delete';
       } else {
-        this.UserVotes.id.push(hackathonId);
+        this.UserVotes[id].push(hackathonId);
+        operation = 'add';
       }
     } else {
-      this.UserVotes['id'] = [hackathonId];
+      this.UserVotes[id] = [hackathonId];
+      operation = 'add';
     }
+
     console.log(this.UserVotes);
+    this.updateVotesCount(hackathonId, operation);
+  }
+  getTotalVotesCount() {
+    return this.totalVotesCount;
+  }
+  getUserVotesData(id: any) {
+    return this.UserVotes[id];
   }
 }

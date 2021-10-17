@@ -20,7 +20,7 @@
   </div>
   <!-- sort - bar -->
   <div class="sort-container">
-    <label style="text-align: center"> votes</label>
+    <label style="text-align: center"> Votes</label>
 
     <img
       src="assets/icons8-slide-up-48.png"
@@ -55,12 +55,10 @@
 
   <!-- nav bar ends -->
 
-  <!-- hackathons-content -->
-
   <div class="hackathon-container">
     <div class="hackathon-idea">
-      <div *ngFor="let d of Data">
-        <div class="data-box">
+      <div *ngFor="let d of Data" class="idea-container">
+        <div class="data-box" id="title-box">
           <img
             class="title-img"
             src="assets/hackathon.png"
@@ -71,29 +69,45 @@
             {{ d.title }}
           </h2>
         </div>
-        <span *ngFor="let tag of d.tags" class="tag">{{ d.tags }}</span>
+        <div class="tag-container">
+          <span *ngFor="let tag of d.tags" class="tag">{{ d.tags }}</span>
+        </div>
         <div class="data-box" id="skills-box">
-          <div>
+          <div id="skills">
             <label>Skills : </label><span>{{ d.skills }}</span>
+          </div>
+          <div id="endsOn">
+            End{{ d.status === "live" ? "s" : "ed" }} on : {{ d.endsOn | date }}
           </div>
           <button id="see-details-btn" (click)="SeeDetails(d.id)">
             See Details
           </button>
         </div>
-        <div class="data-box">
-          <label>Created By : </label><span>{{ d.createdBy }}</span>
-
+        <div class="data-box" id="created-by-container">
+          <div class="created-by">
+            <label>Created By : </label
+            ><span
+              >{{ d.createdBy }} ({{ d.createdByUserId }})
+              {{ d.creationDate | date }}</span
+            >
+          </div>
           <h1 class="upvote">
             <i
+              (click)="upvoteIdea(d.id)"
               class="bi bi-hand-thumbs-up"
               id="upvote-btn"
               title="Upvote idea"
+              [ngClass]="{
+                'upvote-btn-clicked': d.upvote
+              }"
             ></i>
+            <sub id="votes-count">{{ votesCount[d.id] }}</sub>
           </h1>
         </div>
       </div>
     </div>
   </div>
+
   <!-- hackathon-container ends -->
 
   <!-- got new idea -->

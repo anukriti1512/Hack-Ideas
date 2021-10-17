@@ -1,5 +1,3 @@
-import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler/src/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -30,11 +28,6 @@ export class CreateHackathonComponent implements OnInit {
   });
   dateValue = new Date(Date.now()).toLocaleString().split(',')[0];
   userId = '';
-
-  //  document.getElementsByName("d")[0].setAttribute('min', today);
-  // document.getElementsByName()
-  // document.getElementsByName
-
   showAlert = false;
 
   constructor(
@@ -44,15 +37,6 @@ export class CreateHackathonComponent implements OnInit {
   ) {
     this.userId = this.hackathon.getLoggedInUser();
   }
-  // title: string = '';
-  // tags: string = '';
-  // description: string = '';
-  // rules: string = '';
-  // prize1: any;
-  // prize2: any;
-  // endsOn: any;
-  // skills: string = '';
-  // createdBy: string = '';
 
   ngOnInit(): void {
     let today = new Date().toISOString().split('T')[0];
@@ -60,6 +44,7 @@ export class CreateHackathonComponent implements OnInit {
     document.getElementsByName('d')[0].setAttribute('min', today);
   }
 
+  //validator to validate that user is not entering only whitespace
   noWhitespaceValidator(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
@@ -75,13 +60,14 @@ export class CreateHackathonComponent implements OnInit {
 
     this.CreateHackathonForm.value['tags'] = tagsArray;
     this.CreateHackathonForm.value['userId'] = this.userId;
-    //   this.CreateHackathonForm.value.tags.split(',');
     console.log(this.CreateHackathonForm.value);
 
     this.hackathon.updateHackathonIdea(this.CreateHackathonForm.value);
-    // this.CreateHackathonForm.reset(this.CreateHackathonForm.value);
+    this.hackathon.updateVotesCount(
+      this.CreateHackathonForm.value.id,
+      'create'
+    );
     this.CreateHackathonForm.reset();
-
     console.log(this.CreateHackathonForm.status);
     this.router.navigateByUrl('/home');
   }

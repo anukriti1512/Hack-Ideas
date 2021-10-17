@@ -1,12 +1,5 @@
-<!-- <div>
-  <ul class="flex-container">
-    <li class="nav-content">
-      <a routerLink="/home/create-hackathon">Create</a>
-    </li>
-    <li class="nav-content"><a>Tags</a></li>
-    <li class="nav-content"><a>sort</a></li>
-  </ul>
-</div> -->
 <div class="header-container">
-  <button class="logout-btn">Logout</button>
+  <button class="logout-btn" (click)="logout()">
+    {{ loggedInUser.trim() !== "" ? "Logout" : "Login" }}
+  </button>
 </div>
