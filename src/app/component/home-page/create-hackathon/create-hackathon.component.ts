@@ -59,7 +59,7 @@ export class CreateHackathonComponent implements OnInit {
     let tagsArray = this.CreateHackathonForm.value.tags.split(',');
 
     this.CreateHackathonForm.value['tags'] = tagsArray;
-    this.CreateHackathonForm.value['userId'] = this.userId;
+    this.CreateHackathonForm.value['createdByUserId'] = this.userId;
     console.log(this.CreateHackathonForm.value);
 
     this.hackathon.updateHackathonIdea(this.CreateHackathonForm.value);

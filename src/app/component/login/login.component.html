@@ -1,24 +1,26 @@
-<div class="container">
-  <div id="computer-img">
-    <img src="../assets/computer.jpg" alt="computer" />
-  </div>
-  <div class="input-base">
-    <div class="input-container">
-      <input
-        type="text"
-        [(ngModel)]="employeeId"
-        placeholder="Enter Employee Id"
-        (keydown.space)="$event.preventDefault()"
-        [(ngModel)]="employeeId"
-        required
-      />
-      <button
-        (click)="login()"
-        [disabled]="!(employeeId?.trim() !== '')"
-        routerLink="/home"
-      >
-        <img class="login-btn" src="../assets/log-in.png" />
-      </button>
+<div class="main-container">
+  <div class="container">
+    <div id="computer-img">
+      <img src="../assets/computer.jpg" alt="computer" />
+    </div>
+    <div class="input-base">
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="employeeId"
+          placeholder="Enter Employee Id"
+          (keydown.space)="$event.preventDefault()"
+          [(ngModel)]="employeeId"
+          required
+        />
+        <button
+          (click)="login()"
+          [disabled]="!(employeeId?.trim() !== '')"
+          routerLink="/home"
+        >
+          <img class="login-btn" src="../assets/log-in.png" />
+        </button>
+      </div>
     </div>
   </div>
 </div>
