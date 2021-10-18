@@ -4,7 +4,6 @@
   grid-auto-rows: 50px;
 }
 .logout-btn {
-  grid-column: 15/17;
   margin-right: 13px;
   background: darkgreen;
   color: white;
@@ -13,4 +12,29 @@
   border: 1px solid darkgreen;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   font-size: 20px;
+}
+
+@media only screen and (max-width: 659px) {
+  .logout-btn {
+    grid-column: 13/17;
+    font-size: 15px !important;
+  }
+}
+@media only screen and (min-width: 659px) and (max-width: 884px) {
+  .logout-btn {
+    grid-column: 13/17;
+    font-size: 17px !important;
+  }
+}
+@media only screen and (min-width: 884px) and (max-width: 1125px) {
+  .logout-btn {
+    grid-column: 14/17;
+    font-size: 17px !important;
+  }
+}
+@media only screen and (min-width: 1125px) {
+  .logout-btn {
+    grid-column: 15/17;
+    font-size: 17px !important;
+  }
 }
