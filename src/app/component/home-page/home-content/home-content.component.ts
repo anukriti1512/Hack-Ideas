@@ -152,7 +152,8 @@ export class HomeContentComponent implements OnInit {
           }
         });
       }
+    } else {
+      alert('Please Login to Upvote');
     }
-    console.log(this.Data);
   }
 }
