@@ -11,7 +11,7 @@ export const hackathonData = [
       'A subset of machine learning is closely related to computational statistics, which focuses on making predictions using computers; but not all machine learning is statistical learning. The study of mathematical optimization delivers methods, theory and application domains to the field of machine learning. Data mining is a related field of study, focusing on exploratory data analysis through unsupervised learning. Some implementations of machine learning use data and neural networks in a way that mimics the working of a biological brain. In its application across business problems, machine learning is also referred to as predictive analytics.',
 
     prize: 75000,
-    endsOn: 'Sat Oct 30 2021 00:00:00 GMT+0530 (India Standard Time)',
+    endsOn: 'Sat Oct 30 2022 00:00:00 GMT+0530 (India Standard Time)',
     createdBy: 'Ashok sharma',
     creationDate: 'Tue Oct 12 2021 00:00:00 GMT+0530 (India Standard Time)',
     createdByUserId: 'AS1234',

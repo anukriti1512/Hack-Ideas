@@ -10,6 +10,7 @@
           [(ngModel)]="employeeId"
           placeholder="Enter Employee Id"
           (keydown.space)="$event.preventDefault()"
+          (keydown.enter)="login()"
           [(ngModel)]="employeeId"
           required
         />

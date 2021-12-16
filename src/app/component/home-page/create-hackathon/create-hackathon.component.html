@@ -112,7 +112,12 @@
         [value]="dateValue"
         disabled
       />
-      <div class="mandate" *ngIf="CreateHackathonForm.status == 'INVALID'">
+      <div
+        class="mandate"
+        *ngIf="
+          CreateHackathonForm.status == 'INVALID' && CreateHackathonForm.dirty
+        "
+      >
         * enter value for all required fields to enable submit button
       </div>
       <button
